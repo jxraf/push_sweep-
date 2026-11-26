@@ -3,7 +3,11 @@
 
 void	sa(t_list *stacka)
 {
-	
+	t_list *temp;
+ 	temp = stacka;
+	stacka = stacka->next;
+	stacka->next = 	temp; 
+	ft_lstadd_front(&stacka,temp); 
 }
 int main ()
 {
@@ -16,10 +20,13 @@ int main ()
 	node1->next = node2;
 	node2->next = node3;
 
+	sa(head);
 	t_list *tmp;
+	tmp = head;
 	while (tmp)
 	{
-		printf("%d",(int)tmp->content);
-		tmp = head->next;
+	printf("%s\n",(char *)tmp->content);
+		tmp = tmp->next;
 	}
+//	printf("%s",(char *)head->content);
 }
